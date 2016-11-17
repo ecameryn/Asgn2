@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Test</h2>
+            <h3>Test</h3>
+    <form id="form1" runat="server">
+    <div id="Wrapper">
+        <!--<nav id="sidenav">
+            <a href="/"> Menu Item 1</a>
+            <a href="/"> Menu Item 2</a>
+            <a href="/"> Menu Item 3</a>
+            <a href="/"> Menu Item 4</a>
+            <a href="/"> Menu Item 5</a>
+        </nav>-->
+        <section id="MainContent">
+            <asp:ContentPlaceHolder id="cpMainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+        <!--<aside id="Sidebar">
+            <h5>Asgn2 Topics</h5>
+            <p>Recreate Asgn1 but in VS2015 w/C#,SQL server, etc.</p>
+        </aside>
+        <footer>Footer goes here</footer>-->
+    </div>
+    </form>
+</body>
+</html>
