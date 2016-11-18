@@ -43,7 +43,7 @@
                 </tr>
 
                
-            </table>
+            
             
             
             
@@ -65,6 +65,7 @@
                     <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
                <!-- -->
             </tr>
+        </table>
         </AlternatingItemTemplate>
         <EditItemTemplate>
             <tr style="background-color: #999999;">
