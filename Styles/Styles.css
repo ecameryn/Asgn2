@@ -2,7 +2,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 85%;
-    width: 520px;
+    width: 380px;
     margin: 0 auto;
     padding: 10px;
     background-color: antiquewhite;
@@ -23,8 +23,15 @@ h1 {
     text-align:center;
 }
 .boxed{
-	border: 3px solid white;
-	width: 520px;
+	border: 3px solid orangered;
+	width: 370px;
+}
+#table1 {
+  border: solid thin black;
+}
+
+#table1 td {
+  border: solid thin black;
 }
 .cpHead{
     text-align: center;

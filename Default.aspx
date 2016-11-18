@@ -30,7 +30,7 @@
             <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="Label14" /></h2>
             <h3 class="boxed"><asp:Label Text='<%# Eval("description") %>' runat="server" ID="Label15" /></h3>
 
-            <table>
+           <table id="table1">
                 <tr>
                     <th>CRN</th>
                     <th>Section</th>
@@ -56,7 +56,7 @@
                         <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="Label12" />
                         <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="Label11" /></td>
                 </tr>
-            </table>
+            </table><br /><br /><br /><br />
 
             <!--<asp:Label Text='<%# Eval("subjID") %>' runat="server" ID="Label2" />
             <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="Label3" />
