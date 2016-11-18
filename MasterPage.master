@@ -10,8 +10,6 @@
     <link href="Styles/Styles.css" rel="stylesheet" />
 </head>
 <body>
-    <h2>Test</h2>
-            <h3>Test</h3>
     <form id="form1" runat="server">
     <div id="Wrapper">
         <!--<nav id="sidenav">

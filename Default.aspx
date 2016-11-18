@@ -2,11 +2,11 @@
 
 <asp:Content ID="Content1"  ContentPlaceHolderID="head" Runat="Server" CssClass="cpHead" >
    
-    CSU Course Schedule
+    <h1>CSU Course Schedule</h1>
 </asp:Content>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server" >
 
 
     Choose a semester: <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="term" DataValueField="termID" AutoPostBack="True"></asp:DropDownList>
@@ -23,173 +23,77 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource3">
-        <AlternatingItemTemplate>
-            <h2>Test</h2>
-            <h3>Test</h3>
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource3">
+        <ItemTemplate>
+
+            <h2 class="boxed"><asp:Label Text='<%# Eval("subjID") %>' runat="server" ID="Label13" />
+            <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="Label14" /></h2>
+            <h3 class="boxed"><asp:Label Text='<%# Eval("description") %>' runat="server" ID="Label15" /></h3>
 
             <table>
-
-               <tr style="background-color: #FFFFFF; color: #284775;">
-                    <td>
-                        <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="Label1" />
-                        <asp:Label Text='<%# Eval("subjID") %>' runat="server" ID="Label2" /></td>               
-                 </tr>  
-                                             
-                <tr style="background-color: #FFFFFF; color: #284775;">
-                    <td>
-                        <asp:Label Text='<%# Eval("description") %>' runat="server" ID="descriptionLabel" /></td>
-
-                </tr>
-
-               
-            
-            
-            
-            
-            <tr style="background-color: #FFFFFF; color: #284775;">
-                <td>
-                    <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" />
-                    <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" />
-                    <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" />
-                    <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
-               <!-- -->
-            </tr>
-        </table>
-        </AlternatingItemTemplate>
-        <EditItemTemplate>
-            <tr style="background-color: #999999;">
-                <td>
-                    <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" />
-                    <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
-                </td>
-                <td>
-                    <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" />
-                    <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" />
-                    <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" />
-                    <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
-                <!--<td>
-                    <asp:TextBox Text='<%# Bind("description") %>' runat="server" ID="descriptionTextBox" /></td>-->
-            </tr>
-        </EditItemTemplate>
-        <EmptyDataTemplate>
-            <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
                 <tr>
-                    <td>No data was returned.</td>
+                    <th>CRN</th>
+                    <th>Section</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Begin/End Dates</th>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="Label4" /></td>
+                    <td>
+                        <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="Label5" /></td>
+                    <td>
+                        <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="Label6" /></td>
+                    <td>
+                        <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="Label10" />
+                        <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="Label9" /></td>
+                    <td>
+                        <asp:Label Text='<%# Eval("building") %>' runat="server" ID="Label7" />
+                        <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="Label8" /></td>
+                    <td>
+                        <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="Label12" />
+                        <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="Label11" /></td>
                 </tr>
             </table>
-        </EmptyDataTemplate>
-        <InsertItemTemplate>
-            <tr style="">
-                <td>
-                    <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" />
-                    <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
-                </td>
-                <td>
-                    <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" />
-                    <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" />
-                    <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" />
-                    <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
-                <!--<td>
-                    <asp:TextBox Text='<%# Bind("description") %>' runat="server" ID="descriptionTextBox" /></td>-->
-            </tr>
-        </InsertItemTemplate>
-        <ItemTemplate>
-            <tr></tr>
-            <tr style="background-color: #E0FFFF; color: #333333;">
-                <td>
-                    <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" />
-                    <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" />
-                    <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" />
-                    <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
-                <!--<td>
-                    <asp:Label Text='<%# Eval("description") %>' runat="server" ID="descriptionLabel" /></td>-->
-            </tr>
+
+            <!--<asp:Label Text='<%# Eval("subjID") %>' runat="server" ID="Label2" />
+            <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="Label3" />
+            <asp:Label Text='<%# Eval("description") %>' runat="server" ID="Label1" />
+            crn:
+            <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /><br />
+            crsSection:
+            <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /><br />
+            termID:
+            <asp:Label Text='<%# Eval("termID") %>' runat="server" ID="termIDLabel" /><br />
+            instrID:
+            <asp:Label Text='<%# Eval("instrID") %>' runat="server" ID="instrIDLabel" /><br />
+            subjID:
+            <asp:Label Text='<%# Eval("subjID") %>' runat="server" ID="subjIDLabel" /><br />
+            subjType:
+            <asp:Label Text='<%# Eval("subjType") %>' runat="server" ID="subjTypeLabel" /><br />
+            weekDay:
+            <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /><br />
+            beginTime:
+            <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" /><br />
+            endTime:
+            <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /><br />
+            timeOfDay:
+            <asp:Label Text='<%# Eval("timeOfDay") %>' runat="server" ID="timeOfDayLabel" /><br />
+            building:
+            <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" /><br />
+            roomNum:
+            <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /><br />
+            beginDate:
+            <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" /><br />
+            endDate:
+            <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /><br />
+            description:
+            <asp:Label Text='<%# Eval("description") %>' runat="server" ID="descriptionLabel" /><br />
+            <br />-->
         </ItemTemplate>
-        <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
-                        <table runat="server" id="itemPlaceholderContainer" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;" border="1">
-                            <tr runat="server" style="background-color: #E0FFFF; color: #333333;">
-                                <th runat="server">CRN</th>
-                                <th runat="server">Section</th>
-                                <th runat="server">Day</th>
-                                <th runat="server">Time</th>
-                                <th runat="server">Location</th>
-                                <th runat="server">Begin/End Dates</th>
-                            </tr>
-                            <tr runat="server" id="itemPlaceholder"></tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr runat="server">
-                    <td runat="server" style="text-align: center; background-color: #5D7B9D; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF"></td>
-                </tr>
-            </table>
-        </LayoutTemplate>
-        <SelectedItemTemplate>
-            <tr style="background-color: #E2DED6; font-weight: bold; color: #333333;">
-                <td>
-                    <asp:Label Text='<%# Eval("crn") %>' runat="server" ID="crnLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("crsSection") %>' runat="server" ID="crsSectionLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("weekDay") %>' runat="server" ID="weekDayLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginTime") %>' runat="server" ID="beginTimeLabel" />
-                    <asp:Label Text='<%# Eval("endTime") %>' runat="server" ID="endTimeLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("building") %>' runat="server" ID="buildingLabel" />
-                    <asp:Label Text='<%# Eval("roomNum") %>' runat="server" ID="roomNumLabel" /></td>
-                <td>
-                    <asp:Label Text='<%# Eval("beginDate") %>' runat="server" ID="beginDateLabel" />
-                    <asp:Label Text='<%# Eval("endDate") %>' runat="server" ID="endDateLabel" /></td>
-                <!--<td>
-                    <asp:Label Text='<%# Eval("description") %>' runat="server" ID="descriptionLabel" /></td>-->
-            </tr>
-        </SelectedItemTemplate>
-    </asp:ListView>
+    </asp:DataList>
 
     
 </asp:Content>
